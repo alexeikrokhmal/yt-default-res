@@ -1,0 +1,39 @@
+{
+    "manifest_version": 2,
+
+    "name": "Youtube Default Resolution",
+
+    "version": "0.5",
+
+    "description": "Automatically selects a desired resolution on youtube or the closest one to it.",
+
+    "icons": {
+        "48": "icons/yt-default-res.png"
+    },
+
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+
+    "permissions": [
+        "activeTab",
+        "webNavigation",
+        "<all_urls>",
+        "storage",
+        "tabs"
+    ],
+
+    "browser_action": {
+        "default_icon": "icons/yt-default-res32.png",
+        "default_title": "Default Youtube Resolution",
+        "default_popup": "popup/choose_resolution.html"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["*://*.youtube.com/watch*"],
+            "js": ["yt-default-res.js"]
+        }
+    ]
+}
