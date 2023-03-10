@@ -8,7 +8,8 @@
     "description": "Automatically selects a desired resolution on youtube or the closest one to it.",
 
     "icons": {
-        "48": "icons/yt-default-res.png"
+        "48": "icons/yt-default-res-48.png",
+        "96": "icons/yt-default-res-96.png"
     },
 
     "background": {
@@ -25,7 +26,7 @@
     ],
 
     "browser_action": {
-        "default_icon": "icons/yt-default-res32.png",
+        "default_icon": "icons/yt-default-res-32.png",
         "default_title": "Default Youtube Resolution",
         "default_popup": "popup/choose_resolution.html"
     },
