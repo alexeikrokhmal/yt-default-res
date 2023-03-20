@@ -36,12 +36,10 @@ function setResolution(youtubePlayer, resolution) {
             youtubePlayer.setPlaybackQualityRange(resolution);
         }
         youtubePlayer.setPlaybackQuality(resolution);
-        // console.log("Set Resolution to " + resolution);
     }
 }
 
 browser.runtime.onMessage.addListener((request) => {
-    // console.log("Message to change resolution recieved, resolution: " + request.resolution);
     let ytPlayer =
         document.getElementById("movie_player") ||
         document.getElementsByClassName("html5-video-player")[0];
@@ -50,5 +48,3 @@ browser.runtime.onMessage.addListener((request) => {
 
     return Promise.resolve();
 });
-
-// console.log("Finished adding content script listener.");

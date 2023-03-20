@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="choose_resolution.css" />
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="choose_resolution.css" />
+    </head>
 
-  <body>
-    <label for="resolutions">Default Resolution:</label>
-    <div id="popup-content">
-        <select name="resolutions" id="resolutions">
-            <option value="hd2160">2160p</option>
-            <option value="hd1440">1440p</option>
-            <option value="hd1080">1080p</option>
-            <option value="hd720">720p</option>
-        </select>
-    </div>
-    <div id="error-content" class="hidden">
-        <p>Error</p>
-    </div>
-    <script src="choose_resolution.js"></script>
-
-
-  </body>
+    <body>
+        <label for="resolutions">Default Resolution:</label>
+        <div id="popup-content">
+            <select name="resolutions" id="resolutions">
+                <option value="hd2160">2160p</option>
+                <option value="hd1440">1440p</option>
+                <option selected value="hd1080">1080p</option>
+                <option value="hd720">720p</option>
+            </select>
+        </div>
+        <div id="error-content" hidden>
+            <p>Error</p>
+        </div>
+        <script src="choose_resolution.js"></script>
+    </body>
 </html>
