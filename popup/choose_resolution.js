@@ -16,7 +16,6 @@ function setAndSendResolution() {
 }
 
 function reportExecuteScriptError(error) {
-    // console.log(error.message);
     document.querySelector("#popup-content").hidden = true;
     document.querySelector("#error-content").hidden = false;
     console.error(`Failed to execute content script: ${error.message}`);
@@ -31,7 +30,7 @@ try {
 } catch (error) {
     reportExecuteScriptError();
 }
-document.querySelector("#hide-test").hidden = true;
+
 resolutionSelector = document.getElementById("resolutions");
 
 browser.storage.local.get("yt-default-res").then((response) => {

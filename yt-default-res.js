@@ -1,5 +1,5 @@
 // const possibleResolutions = ['highres', 'hd2880', 'hd2160', 'hd1440', 'hd1080', 'hd720', 'large', 'medium', 'small', 'tiny'];
-const resolutionMap = new Map();
+var resolutionMap = new Map();
 
 resolutionMap.set("tiny", 0);
 resolutionMap.set("small", 1);

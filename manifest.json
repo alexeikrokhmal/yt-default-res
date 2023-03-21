@@ -17,13 +17,9 @@
         "persistent": false
     },
 
-    "permissions": [
-        "activeTab",
-        "webNavigation",
-        "<all_urls>",
-        "storage",
-        "tabs"
-    ],
+    "host_permissions": ["*://youtube.com/*"],
+
+    "permissions": ["activeTab", "webNavigation", "storage", "tabs"],
 
     "browser_action": {
         "default_icon": "icons/yt-default-res-32.png",
