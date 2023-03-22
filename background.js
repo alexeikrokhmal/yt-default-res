@@ -1,7 +1,10 @@
 browser.tabs.onUpdated.addListener((tabId, changed, tab) => {
     if (tab.url && tab.url.includes("youtube.com/watch")) {
-        browser.tabs.executeScript({
-            file: "/yt-default-res.js",
+        browser.scripting.executeScript({
+            target: {
+                tabId: tab.id,
+            },
+            files: ["/yt-default-res.js"],
         });
 
         browser.storage.local.get("yt-default-res").then((response) => {
