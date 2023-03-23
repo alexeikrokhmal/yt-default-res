@@ -3,7 +3,7 @@
 
     "name": "Youtube Default Resolution",
 
-    "version": "0.7",
+    "version": "0.7.1",
 
     "description": "Automatically selects a desired resolution on youtube or the closest one to it.",
 
@@ -16,7 +16,7 @@
         "scripts": ["background.js"]
     },
 
-    "permissions": ["activeTab", "storage", "tabs", "scripting"],
+    "permissions": ["activeTab", "storage", "scripting"],
 
     "host_permissions": ["https://*.youtube.com/watch*"],
 
@@ -33,5 +33,11 @@
             "matches": ["https://*.youtube.com/watch*"],
             "js": ["yt-default-res.js"]
         }
-    ]
+    ],
+
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{f7f92935-8efe-4693-8fea-dcd2433bf6b8}"
+        }
+    }
 }
