@@ -12,13 +12,9 @@
         "96": "icons/yt-default-res-96.png"
     },
 
-    "background": {
-        "scripts": ["background.js"]
-    },
+    "permissions": ["storage"],
 
-    "permissions": ["activeTab", "storage", "scripting"],
-
-    "host_permissions": ["https://*.youtube.com/watch*"],
+    "host_permissions": ["https://www.youtube.com/*"],
 
     "action": {
         "default_icon": {
@@ -30,14 +26,18 @@
 
     "content_scripts": [
         {
-            "matches": ["https://*.youtube.com/watch*"],
+            "matches": ["https://www.youtube.com/*"],
             "js": ["yt-default-res.js"]
         }
     ],
 
     "browser_specific_settings": {
         "gecko": {
-            "id": "{f7f92935-8efe-4693-8fea-dcd2433bf6b8}"
+            "id": "{f7f92935-8efe-4693-8fea-dcd2433bf6b8}",
+            "strict_min_version": "109.0",
+            "data_collection_permissions": {
+                "required": ["none"]
+            }
         }
     }
 }
