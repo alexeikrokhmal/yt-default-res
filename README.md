@@ -17,7 +17,7 @@ one below it (or the lowest available, if every option is higher).
 
 ## Installation
 
-The extension targets Firefox 109 or later and uses Manifest V3.
+The extension targets Firefox 140 or later (142 on Android) and uses Manifest V3.
 
 ### Temporary install (for development)
 
