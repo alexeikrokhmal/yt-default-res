@@ -1,43 +1,24 @@
-function setAndSendResolution() {
-    function sendResolutionToContentScript(tabs) {
-        resolution = document.getElementById("resolutions").value;
-        let contentToStore = {};
-        contentToStore["yt-default-res"] = resolution;
-        browser.storage.local.set(contentToStore);
-        browser.tabs.sendMessage(tabs[0].id, {
-            resolution: resolution,
-        });
-    }
+const STORAGE_KEY = "yt-default-res";
+const DEFAULT_RESOLUTION = "hd1080";
 
-    browser.tabs
-        .query({ active: true, currentWindow: true })
-        .then(sendResolutionToContentScript)
-        .catch(reportError);
+const resolutionSelector = document.getElementById("resolutions");
+
+function showError(error) {
+    document.getElementById("popup-content").hidden = true;
+    document.getElementById("error-content").hidden = false;
+    console.error(`Failed to access storage: ${error.message}`);
 }
 
-function reportExecuteScriptError(error) {
-    document.querySelector("#popup-content").hidden = true;
-    document.querySelector("#error-content").hidden = false;
-    console.error(`Failed to execute content script: ${error.message}`);
-}
-
-try {
-    resolutionSelector = document.getElementById("resolutions");
-
-    resolutionSelector.addEventListener("click", function () {
-        setAndSendResolution();
-    });
-} catch (error) {
-    reportExecuteScriptError();
-}
-
-resolutionSelector = document.getElementById("resolutions");
-
-browser.storage.local.get("yt-default-res").then((response) => {
-    storedResolution = response["yt-default-res"];
-    if (storedResolution === undefined) {
-        storedResolution = "hd1080";
-    }
-
-    resolutionSelector.value = storedResolution;
+// Open YouTube tabs pick the change up through storage.onChanged.
+resolutionSelector.addEventListener("change", () => {
+    browser.storage.local
+        .set({ [STORAGE_KEY]: resolutionSelector.value })
+        .catch(showError);
 });
+
+browser.storage.local
+    .get(STORAGE_KEY)
+    .then((stored) => {
+        resolutionSelector.value = stored[STORAGE_KEY] || DEFAULT_RESOLUTION;
+    })
+    .catch(showError);
