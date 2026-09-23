@@ -61,3 +61,7 @@ yt-default-res.js          Content script that sets the player's quality
 popup/                     Toolbar popup for choosing the resolution
 icons/                     Extension icons
 ```
+
+## License
+
+[MIT](LICENSE)
